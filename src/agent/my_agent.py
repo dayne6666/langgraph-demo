@@ -3,19 +3,18 @@
 from agent.my_llm import llm, deepseek_llm
 from langgraph.prebuilt import create_react_agent
 
+from agent.tools.tool_demo3 import calculate3
+
+
 def get_weather(city: str) -> str:
     """Get weather for a given city."""
     return f"城市：{city}， 今天天气晴朗，气温在28摄氏度！"
 
 graph = create_react_agent(
     deepseek_llm,
-    tools=[get_weather],
+    tools=[calculate3],
     prompt="你是一个智能助手，尽可能的调用工具回答用户的问题",
 )
-
-
-
-
 
 
 
