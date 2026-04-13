@@ -22,12 +22,12 @@ def calculate3(
         raise ValueError("操作符号错误")
 
 
-print(calculate3.name)
-print(calculate3.description)
-print(calculate3.args)
-print(calculate3.args_schema.model_json_schema())
-print(calculate3.return_direct)
-
-
-resp = calculate3.invoke({'a': 12, 'b': 23, 'operation': 'add'})
-print(resp)
+# print(calculate3.name)
+# print(calculate3.description)
+# print(calculate3.args)
+# print(calculate3.args_schema.model_json_schema())
+# print(calculate3.return_direct)
+#
+#
+# resp = calculate3.invoke({'a': 12, 'b': 23, 'operation': 'add'})
+# print(resp)

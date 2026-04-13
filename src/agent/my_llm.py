@@ -9,6 +9,7 @@ deepseekBaseUrl = os.getenv("DEEPSEEK_BASE_URL")
 ark_api_key = os.getenv("ARK_API_KEY")
 ark_base_url = os.getenv("ARK_BASE_URL")
 mysql_url = os.getenv("MYSQL_CONNECTION")
+ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY")
 
 
 deepseek_llm = init_chat_model(

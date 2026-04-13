@@ -4,26 +4,21 @@ from agent.my_llm import llm, deepseek_llm
 from langgraph.prebuilt import create_react_agent
 
 from agent.tools.tool_demo3 import calculate3
+from agent.tools.tool_demo6 import runnable_tool
+from agent.tools.tool_demo7 import MySearchTool
 
-
+# 创建一个网络搜索的工具
+search_tool = MySearchTool()
 def get_weather(city: str) -> str:
     """Get weather for a given city."""
     return f"城市：{city}， 今天天气晴朗，气温在28摄氏度！"
 
 graph = create_react_agent(
     deepseek_llm,
-    tools=[calculate3],
+    tools=[calculate3,runnable_tool,search_tool],
     prompt="你是一个智能助手，尽可能的调用工具回答用户的问题",
 )
 
-
-
-
-
-
-
-# # 创建一个网络搜索的工具
-# search_tool = MySearchTool()
 #
 #
 # # 提示词模板的函数: 由用户传入内容，组成一个动态的系统提示词
@@ -46,9 +41,9 @@ graph = create_react_agent(
 # #     print("\n")
 #
 #
-# # res = graph.invoke(
-# #     {"messages": [{"role": "user", "content": "给我一个小品的报幕词"}]},
-# #     config={"configurable": {"user_name": "laoxiao"}},
-# # )
-# #
-# # print(res['messages'][-1].content)
+# res = graph.invoke(
+#     {"messages": [{"role": "user", "content": "给我一个小品的报幕词,校园生活，中文"}]},
+#     config={"configurable": {"user_name": "laoxiao"}},
+# )
+#
+# print(res['messages'][-1].content)
