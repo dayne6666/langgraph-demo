@@ -14,7 +14,7 @@ async def main():
         input={
         "messages": [{
             "role": "human",
-            "content": "今天北京的天气怎么样",
+            "content": "给当前用户一个祝福词",
             }],
         },
         config={"configurable": {"user_name": "老肖"}}

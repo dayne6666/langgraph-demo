@@ -8,7 +8,7 @@ for chunk in client.runs.stream(
     input={
         "messages": [{
             "role": "human",
-            "content": "告诉我当前用户的年龄",
+            "content": "给当前用户一个祝福词",
             # "content": "计算一下(3 + 5) x 12的结果",
         }],
 
@@ -16,7 +16,7 @@ for chunk in client.runs.stream(
     stream_mode="messages-tuple",
     # stream_mode="messages",
     # stream_mode="updates",
-    config={"configurable": {"user_name": "user_123"}}
+    config={"configurable": {"user_name": "老肖"}}
 ):
     # print(f"Receiving new event of type: {chunk.event}...")
     # print(chunk.data)

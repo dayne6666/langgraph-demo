@@ -5,10 +5,11 @@ from langchain_core.runnables import RunnableConfig
 from agent.my_llm import llm, deepseek_llm
 from langgraph.prebuilt import create_react_agent
 
+from agent.my_state import CustomState
 from agent.tools.tool_demo3 import calculate3
 from agent.tools.tool_demo6 import runnable_tool
 from agent.tools.tool_demo7 import MySearchTool
-from agent.tools.tool_demo8 import get_user_info_by_name
+from agent.tools.tool_demo9 import get_user_name, greet_user
 
 # 创建一个网络搜索的工具
 search_tool = MySearchTool()
@@ -29,9 +30,10 @@ def prompt(state: AgentState, config: RunnableConfig) -> list[AnyMessage]:
 
 graph = create_react_agent(
     deepseek_llm,
-    tools=[calculate3,runnable_tool,search_tool,get_user_info_by_name],
+    tools=[calculate3,runnable_tool,search_tool,get_user_name,greet_user],
     # prompt="你是一个智能助手，尽可能的调用工具回答用户的问题",
     prompt = prompt,
+    state_schema=CustomState,
 )
 
 #
